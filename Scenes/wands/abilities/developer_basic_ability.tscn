@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs4tbjcf6s14j"]
+
+[ext_resource type="PackedScene" uid="uid://dnbhhfvny856r" path="res://Scenes/wands/projectiles/developer_projectile.tscn" id="2_dp1j4"]
+
+[sub_resource type="GDScript" id="GDScript_mjau6"]
+script/source = "extends ProjectileAbility
+
+func _on_cooldown_timer_timeout():
+	can_cast = true
+
+
+func _on_duration_timer_timeout():
+	pass # Replace with function body.
+"
+
+[node name="developer_basic_ability" type="Node2D"]
+script = SubResource("GDScript_mjau6")
+projectile_scene = ExtResource("2_dp1j4")
+title = "Developer Basic"
+description = "This is a deug ability"
+cooldown = 2.0
+duration = 2.0
+
+[node name="duration_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="cooldown_timer" type="Timer" parent="."]
+one_shot = true

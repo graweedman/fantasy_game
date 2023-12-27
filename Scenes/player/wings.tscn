@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://rv1q3kmla2uj"]
+
+[ext_resource type="SpriteFrames" uid="uid://dhyopyhk4fndf" path="res://Sprites/default_wings.tres" id="1_h67lr"]
+
+[node name="developer_wings" type="Node2D"]
+
+[node name="wings" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_h67lr")
+animation = &"open"
+offset = Vector2(-20, -3)

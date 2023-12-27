@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi60btch8e810"]
+
+[ext_resource type="Script" path="res://Scripts/player/player_shield.gd" id="1_m683s"]
+[ext_resource type="Texture2D" uid="uid://b6bot1k3cx60b" path="res://Sprites/Shield.png" id="1_xxcvh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fhipk"]
+radius = 23.0
+
+[node name="shield" type="Area2D"]
+script = ExtResource("1_m683s")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fhipk")
+
+[node name="sprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.47451)
+texture = ExtResource("1_xxcvh")

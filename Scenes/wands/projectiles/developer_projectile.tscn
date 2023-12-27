@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnbhhfvny856r"]
+
+[ext_resource type="Script" path="res://Scripts/wands/projectiles/developer_projectile.gd" id="1_lr70i"]
+[ext_resource type="Texture2D" uid="uid://bfakksij3flih" path="res://Sprites/Resource.png" id="1_yoebh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h3j5e"]
+radius = 8.0
+
+[node name="developer_projectile" type="Area2D"]
+collision_layer = 8
+collision_mask = 6
+script = ExtResource("1_lr70i")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_h3j5e")
+
+[node name="sprite" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0.913725, 1)
+texture = ExtResource("1_yoebh")
+
+[node name="lifetime" type="Timer" parent="."]

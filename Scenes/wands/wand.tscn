@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://bxhregbbf6ud1"]
+
+[ext_resource type="Texture2D" uid="uid://dufkrpllk1ukd" path="res://Sprites/Wand-1.png" id="1_a3ejf"]
+[ext_resource type="Script" path="res://Scripts/wands/developer_wand.gd" id="1_qwrtj"]
+[ext_resource type="PackedScene" uid="uid://dnbhhfvny856r" path="res://Scenes/wands/projectiles/developer_projectile.tscn" id="2_4cmei"]
+[ext_resource type="Script" path="res://Scripts/wands/abilities/ability_pool.gd" id="4_aroyy"]
+[ext_resource type="PackedScene" uid="uid://bs4tbjcf6s14j" path="res://Scenes/wands/abilities/developer_basic_ability.tscn" id="5_ahctv"]
+[ext_resource type="Script" path="res://Scripts/wands/abilities/ability/developer_basic_ability.gd" id="6_hp3xr"]
+[ext_resource type="PackedScene" uid="uid://die1sdj7sbu3e" path="res://Scenes/wands/abilities/developer_melee_ability.tscn" id="7_bkjqh"]
+[ext_resource type="PackedScene" uid="uid://cgkas1lij05a2" path="res://Scenes/wands/abilities/developer_ray_ability.tscn" id="8_sxmnw"]
+[ext_resource type="PackedScene" uid="uid://dp10v2bm83xok" path="res://Scenes/wands/abilities/developer_shield_ability.tscn" id="9_k0qhj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xbl2a"]
+radius = 24.0832
+
+[node name="developer_wand" type="Node2D"]
+script = ExtResource("1_qwrtj")
+projectile_scene = ExtResource("2_4cmei")
+
+[node name="wand" type="Sprite2D" parent="."]
+texture = ExtResource("1_a3ejf")
+offset = Vector2(2.08165e-12, -15.85)
+
+[node name="wand_exit" type="Node2D" parent="." node_paths=PackedStringArray("primary", "secondary", "defensive", "offensive")]
+position = Vector2(0, -24)
+script = ExtResource("4_aroyy")
+primary = NodePath("developer_basic_ability")
+secondary = NodePath("developer_melee_ability")
+defensive = NodePath("developer_shield_ability")
+offensive = NodePath("developer_ray_ability")
+
+[node name="developer_basic_ability" parent="wand_exit" instance=ExtResource("5_ahctv")]
+script = ExtResource("6_hp3xr")
+projectile_speed = null
+projectile_size = null
+title = "Projectile Ability"
+description = "Shoots projectile"
+ability_value = null
+cooldown = 2.08165e-12
+cost = null
+modifier = null
+duration = null
+
+[node name="developer_melee_ability" parent="wand_exit" instance=ExtResource("7_bkjqh")]
+
+[node name="developer_ray_ability" parent="wand_exit" instance=ExtResource("8_sxmnw")]
+duration = 2.0
+
+[node name="developer_shield_ability" parent="wand_exit" instance=ExtResource("9_k0qhj")]
+title = "Shield Ability"
+description = "This is a Shield ability"
+ability_value = 10
+cooldown = 2.0
+duration = 5.0
+
+[node name="melee_area" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="melee_collision" type="CollisionShape2D" parent="melee_area"]
+position = Vector2(0, -24)
+shape = SubResource("CircleShape2D_xbl2a")
+disabled = true
+
+[node name="ray" type="Node2D" parent="."]
+position = Vector2(0, -24)
+
+[node name="wand_range" type="RayCast2D" parent="ray"]
+target_position = Vector2(2.08165e-12, -100)
+collision_mask = 2
+
+[node name="ray_line" type="Line2D" parent="ray"]
+visible = false
+position = Vector2(0, -1)
+points = PackedVector2Array(0, 0, 2.08165e-12, -10)
+width = 2.0
+default_color = Color(0.392157, 0.596078, 0.372549, 1)

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5ytpksfpesol"]
+
+[ext_resource type="Script" path="res://Scripts/wands/resource/lifeforce.gd" id="1_43cuv"]
+
+[node name="lifeforce_pool" type="Node"]
+script = ExtResource("1_43cuv")

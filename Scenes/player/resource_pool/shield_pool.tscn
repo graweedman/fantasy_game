@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhxtiw7qou34c"]
+
+[ext_resource type="Script" path="res://Scripts/wands/resource/shield.gd" id="1_xijk8"]
+
+[node name="shield_pool" type="Node"]
+script = ExtResource("1_xijk8")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2hkwgil4wyos"]
+
+[ext_resource type="Script" path="res://Scripts/states/player/movement/GLIDE.gd" id="1_c03wo"]
+
+[node name="GLIDE" type="Node"]
+script = ExtResource("1_c03wo")

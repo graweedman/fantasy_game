@@ -1,0 +1,23 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://dhyopyhk4fndf"]
+
+[ext_resource type="Texture2D" uid="uid://bi8srv7r317k" path="res://Sprites/attels-2.png.png" id="1_hffk6"]
+[ext_resource type="Texture2D" uid="uid://c30t5fub7jnkq" path="res://Sprites/attels-20231222-180853-1 (1).png" id="2_eshpj"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hffk6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_eshpj")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://gx7drwidfbhn"]
+
+[ext_resource type="Script" path="res://Scripts/wands/resource/mana.gd" id="1_tb4tn"]
+
+[node name="mana_pool" type="Node"]
+script = ExtResource("1_tb4tn")
