@@ -9,6 +9,8 @@ func enter():
 func update(delta):
 	player_air_movement(delta)
 	player.wing_stamina -= delta
+	if player.dash_actuated_input && player.can_dash:
+		return states.DASH
 	if !player.can_fly || !player.glide_input:
 		if player.glide_input:
 			return states.GLIDE

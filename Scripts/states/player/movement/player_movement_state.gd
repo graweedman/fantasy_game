@@ -10,6 +10,8 @@ func player_movement():
 
 func player_air_movement(delta):
 	if player.movement_input.x != 0:
+
 		player.movement_velocity.x = lerp(player.movement_velocity.x, player.movement_input.x * player.current_speed, delta * 10)
 	else:
+		player.air_drag(delta)
 		player.movement_velocity.x = lerp(player.movement_velocity.x, 0.0, delta)

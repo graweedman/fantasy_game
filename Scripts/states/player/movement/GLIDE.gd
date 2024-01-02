@@ -6,6 +6,8 @@ func enter():
 
 func update(delta):
 	player_air_movement(delta)
+	if player.dash_actuated_input && player.can_dash:
+		return states.DASH
 	if player.is_on_floor():
 		return states.IDLE
 	if !player.glide_input:

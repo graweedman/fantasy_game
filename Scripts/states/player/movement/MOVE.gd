@@ -8,6 +8,8 @@ func update(delta):
 	player.gravity(delta)
 	player_movement()
 	player.reset_wings()
+	if player.dash_actuated_input and player.can_dash:
+		return states.DASH
 	if player.movement_input.x == 0:
 		return states.IDLE
 	if player.velocity.y > 0:

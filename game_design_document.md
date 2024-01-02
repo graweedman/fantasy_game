@@ -45,7 +45,7 @@ The player controls a character with ability to fly for limited time depending o
 
 * Enemies - A character or object attacking the player with goal to kill the player.
 
-* Spikes - A obsticle for character to avoid. Takes health when touched. Enemies can also be hurt when touched.
+* Traps - A obsticle for character to avoid. Takes health when touched. Enemies can also be hurt when touched.
 
 * Bosses - A final stage enemy that will have a specific arena to fight in. Arenas can be only unlcoked after defeating enemies in stage.
 
@@ -138,5 +138,15 @@ Elements can be combined for greater damage. Abilities cost less mana.
   * passive - Abilities deal more damage to the boss, can get lifeforce from boss.
 * Basic mage - Basic wand kit that revolves around basic attack. Shoots basic projectiles. Has Strong defensive ability. Offensive ability enhances basic attack. Uses Lifeforce.
   * passive - Increased basic damage.
+
+### Enemy
+
+#### Enemy Architypes
+
+* Basic - Basic Enemy type distributed around the map. Will have trivial mechanics but can be dangerous in numbers
+* Dashing - Dashing Enemy type will be placed in areas where its hard to dodge them and it will require a good reaction speed preparation before. Will dash when player goes into line of sight in horizontal plane
+* Laser - Enemies that shoots a ray weapon towards player.
+* Bullet caster - enemies that shoots a projectile towards a player.
+
 
 ## Art

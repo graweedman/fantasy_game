@@ -7,9 +7,9 @@ func enter():
 
 func update(delta):
 
-	print(player.velocity)
-	if player.is_on_floor():
-		return states.IDLE
+	# print(player.velocity)
+	if player.dash_actuated_input && player.can_dash:
+		return states.DASH
 	if player.glide_input && player.can_fly:
 		return states.FLY
 	if player.velocity.y > 0:

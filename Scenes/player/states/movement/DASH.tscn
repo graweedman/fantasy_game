@@ -4,3 +4,7 @@
 
 [node name="DASH" type="Node"]
 script = ExtResource("1_7db5f")
+
+[node name="dash_duration" type="Timer" parent="."]
+
+[node name="dash_cooldown" type="Timer" parent="."]

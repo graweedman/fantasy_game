@@ -3,8 +3,12 @@ extends CharacterBody2D
 class_name Player
 
 @onready var flip_point = $flip_point
+@onready var push = $flip_point/push
+@onready var push_collision = $flip_point/push/push_collision
 @onready var STATES = $player_states
 
+@export var AIR_DRAG = 1.5
+@export var GROUND_DRAG = 10
 @export var MOVE_SPEED = 300.0
 @export var FLY_VELOCITY = -300.0
 @export var MAX_WING_STAMINA = 100
@@ -64,7 +68,8 @@ func gravity(delta):
 	if not is_on_floor():
 		momentum_velocity.y += gravity_value * delta
 	if is_on_floor():
-		momentum_velocity.y = 0
+		momentum_velocity = lerp(momentum_velocity, Vector2.ZERO, delta * GROUND_DRAG)
+		# momentum_velocity.y = 0
 
 func _player_facing():
 	if facing_right:
@@ -96,3 +101,6 @@ func _on_health_pool_death():
 
 func take_damage(damage):
 	pass # Replace with function body.
+
+func air_drag(delta):
+	momentum_velocity.x = lerp(momentum_velocity.x, 0.0, delta * AIR_DRAG)

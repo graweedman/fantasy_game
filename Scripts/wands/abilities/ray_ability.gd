@@ -18,21 +18,25 @@ func init():
 func ability_cast():
 	# set_process(true)
 	ray_line.visible = true
-	_ray_point()
+	_ray_point(1)
 
 
 func ability_update(_delta):
-	_ray_point()
+	_ray_point(_delta)
 
 func deactivate():
 	# set_process(false)
 	ray_line.visible = false
 
-func _ray_point():
+func _ray_point(delta):
 	if wand_range.is_colliding():
+
+		var target = wand_range.get_collider()
+
 		target_position = wand_range.get_collision_point()
-		if wand_range.get_collider().is_in_group("enemies"):
-			wand_range.get_collider().take_damage(ability_value)
+		if target:
+			if target.has_method("take_damage_per_second"):
+				target.take_damage_per_second(ability_value, delta)
 	else:
 		target_position = wand_range.target_position
 
